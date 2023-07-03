@@ -4,7 +4,7 @@ Work in Progress
 
 
 ## Planned Tech Stack:
-- typescript
+- Typescript
 - React
 - Three.js
 - MongoDB
