@@ -1,23 +1,25 @@
 import React from 'react'
-import Pokemon from './Pokemon'
+import Pokecard from './Pokecard'
+import { Pokemon } from '../Objects'
 
-function page ({
+function Page ({
   currentPokemons,
   currentPage
 }: {
-  currentPokemons: any[]
+  currentPokemons: Pokemon[]
   currentPage: number
 }) {
+  console.log(currentPokemons)
   return (
     <div>
       <h1>Page number {currentPage}</h1>
       <div className='pokemon-list'>
         {currentPokemons.map(item => {
-          return <Pokemon key={item.id} pokemon={item} />
+          return <Pokecard key={item.id} pokemon={item} />
         })}
       </div>
     </div>
   )
 }
 
-export default page
+export default Page

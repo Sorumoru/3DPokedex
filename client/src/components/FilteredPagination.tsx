@@ -8,10 +8,12 @@ function FilteredPagination ({
   checkedState,
   inputPokemon
 }: {
-  types: any
+  types: string[]
   checkedState: string[]
   inputPokemon: string
 }) {
+  console.log(types)
+
   const [pokemons, setPokemons] = useState([])
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -29,7 +31,7 @@ function FilteredPagination ({
         console.log(inputPokemon)
         data = data.filter((pokemon: any) =>
           checkedState.every(
-            (checked, i) => !checked || pokemon.type.includes(types.current[i])
+            (checked, i) => !checked || pokemon.type.includes(types[i])
           )
         )
         data = data.filter((pokemon: any) =>

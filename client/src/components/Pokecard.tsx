@@ -11,6 +11,8 @@ import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 import Grid from '@mui/material/Grid'
 
+import { Pokemon } from '../Objects'
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -24,12 +26,12 @@ const style = {
 }
 
 // https://mui.com/material-ui/react-modal/
-function Pokemon ({ pokemon }: { pokemon: any }) {
+function Pokecard ({ pokemon }: { pokemon: Pokemon }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const getThreeDigitId = (id: any) => {
+  const getThreeDigitId = (id: number) => {
     if (id < 10) return `00${id}`
     if (id < 100) return `0${id}`
     return id
@@ -128,4 +130,4 @@ function Pokemon ({ pokemon }: { pokemon: any }) {
   )
 }
 
-export default Pokemon
+export default Pokecard

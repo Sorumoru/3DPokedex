@@ -6,18 +6,18 @@ function Search ({
   setCheckedState,
   setInputPokemon
 }: {
-  types: any
-  checkedState: any[]
-  setCheckedState: any
-  setInputPokemon: any
+  types: string[]
+  checkedState: string[]
+  setCheckedState: Function
+  setInputPokemon: Function
 }) {
-  const onHandleSearch = (e: any) => {
+  const onHandleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value)
     setInputPokemon(e.target.value)
   }
 
-  const onChangeHandle = (type: any) => {
-    const index = types.current.indexOf(type)
+  const onChangeHandle = (type: string) => {
+    const index = types.indexOf(type)
     const newCheckedState = checkedState.map((item, i) =>
       i === index ? !item : item
     )
@@ -34,7 +34,7 @@ function Search ({
         ></input>
       </div>
       <div>
-        {types.current.map((type: any) => {
+        {types.map((type: string) => {
           return (
             <span key={type}>
               <input

@@ -7,7 +7,7 @@ function Pagination ({
 }: {
   numberOfPages: number
   currentPage: number
-  setCurrentPage: any
+  setCurrentPage: Function
 }) {
   const pageNumbers: number[] = []
   for (let i = 1; i <= numberOfPages; i++) {
