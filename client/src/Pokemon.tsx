@@ -24,12 +24,12 @@ const style = {
 }
 
 // https://mui.com/material-ui/react-modal/
-function Pokemon ({ pokemon }) {
+function Pokemon ({ pokemon }: { pokemon: any }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const getThreeDigitId = id => {
+  const getThreeDigitId = (id: any) => {
     if (id < 10) return `00${id}`
     if (id < 100) return `0${id}`
     return id
@@ -91,32 +91,32 @@ function Pokemon ({ pokemon }) {
               spacing={2}
             >
               <Grid item xs={6}>
-                <Typography variant='body' color='text'>
+                <Typography variant='body1' color='text'>
                   {`HP: ${pokemon.base.HP}`}
                 </Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant='body' color='text'>
+                <Typography variant='body1' color='text'>
                   {`Sp. Attack: ${pokemon.base['Sp. Attack']}`}
                 </Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant='body' color='text'>
+                <Typography variant='body1' color='text'>
                   {`Attack: ${pokemon.base.Attack}`}
                 </Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant='body' color='text'>
+                <Typography variant='body1' color='text'>
                   {`Sp. Defense: ${pokemon.base['Sp. Defense']}`}
                 </Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant='body' color='text'>
+                <Typography variant='body1' color='text'>
                   {`Defense: ${pokemon.base.Defense}`}
                 </Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant='body' color='text'>
+                <Typography variant='body1' color='text'>
                   {`Speed: ${pokemon.base.Speed}`}
                 </Typography>
               </Grid>

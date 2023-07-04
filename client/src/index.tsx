@@ -1,14 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 import FilteredPagination from './FilteredPagination'
 import Search from './Search'
 import axios from 'axios'
 
+import './styles/index.css'
+
+import { Canvas, useFrame } from '@react-three/fiber'
+// import { OrbitControls } from '@react-three/drei'
+
 // material ui stuff
 
 function Main () {
-  const [checkedState, setCheckedState] = useState([])
+  const [checkedState, setCheckedState] = useState<string[]>([])
   const [inputPokemon, setInputPokemon] = useState('')
   const types = useRef([])
 
@@ -17,7 +21,7 @@ function Main () {
       const result = await axios.get(
         'https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/types.json'
       )
-      types.current = result.data.map(type => type.english)
+      types.current = result.data.map((type: { english: any }) => type.english)
       setCheckedState(new Array(result.data.length).fill(false))
     }
     getTypes()
@@ -25,7 +29,7 @@ function Main () {
 
   return (
     <>
-      <p>woah!!!</p>
+      <p>woah!!! deez</p>
       <Search
         types={types}
         checkedState={checkedState}
@@ -41,6 +45,11 @@ function Main () {
   )
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(<Main />)
+
+// import { createRoot } from 'react-dom/client'
+// import './styles/index.css'
+// import App from './App'
+
+// createRoot(document.getElementById('root')).render(<App />)
