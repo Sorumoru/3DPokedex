@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function Search ({
+function Search({
   types,
   checkedState,
   setCheckedState,
@@ -29,11 +29,11 @@ function Search ({
       <div>
         <input
           type='text'
-          placeholder='Search..'
+          placeholder='Search...'
           onChange={onHandleSearch}
         ></input>
       </div>
-      <div>
+      <div className='poketype-checkboxes'>
         {types.map((type: string) => {
           return (
             <span key={type}>
@@ -47,7 +47,6 @@ function Search ({
                 }}
               />
               <label htmlFor={type}>{type}</label>
-              <br />
             </span>
           )
         })}

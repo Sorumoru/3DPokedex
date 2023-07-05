@@ -11,6 +11,8 @@ import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 import Grid from '@mui/material/Grid'
 
+import { getThreeDigitId } from '../Utils'
+
 import { Pokemon } from '../Objects'
 
 const style = {
@@ -26,32 +28,26 @@ const style = {
 }
 
 // https://mui.com/material-ui/react-modal/
-function Pokecard ({ pokemon }: { pokemon: Pokemon }) {
+function Pokecard({ pokemon }: { pokemon: Pokemon }) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const getThreeDigitId = (id: number) => {
-    if (id < 10) return `00${id}`
-    if (id < 100) return `0${id}`
-    return id
-  }
-
   return (
     <>
-      <Button onClick={handleOpen}>
-        <Card sx={{ maxWidth: 345 }}>
-          <p>testestest</p>
+      <Button sx={{ padding: 0 }} onClick={handleOpen}>
+        <Card sx={{ maxWidth: 100 }}>
+          <p>{'#' + getThreeDigitId(pokemon.id)}</p>
           <CardMedia
             component='img'
-            height='140'
-            image={`https://github.com/fanzeyi/pokemon.json/raw/master/images/${getThreeDigitId(
+            height='50'
+            image={`https://github.com/fanzeyi/pokemon.json/raw/master/sprites/${getThreeDigitId(
               pokemon.id
-            )}.png`}
+            )}MS.png`}
             alt={`${pokemon.id}`}
           />
         </Card>
-      </Button>
+      </Button >
       <Modal
         open={open}
         onClose={handleClose}

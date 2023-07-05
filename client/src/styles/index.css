@@ -7,6 +7,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.whole-thing {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
+}
+
+.pokedex-half {
+  width: 50%;
+  background-color: aquamarine;
+}
+
+.search-half {
+  width: 50%;
+  background-color: bisque;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -30,4 +53,9 @@ button.active {
 .pokemon-list img {
   width: 100px;
   height: 100px;
+}
+
+.poketype-checkboxes {
+  display: flex;
+  flex-direction: row;
 }
