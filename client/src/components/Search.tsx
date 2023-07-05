@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-function Search({
+function Search ({
   types,
   checkedState,
   setCheckedState,
   setInputPokemon
 }: {
   types: string[]
-  checkedState: string[]
+  checkedState: boolean[]
   setCheckedState: Function
   setInputPokemon: Function
 }) {
@@ -24,6 +24,7 @@ function Search({
     setCheckedState(newCheckedState)
   }
 
+  useEffect(() => {})
   return (
     <>
       <div>
@@ -45,6 +46,7 @@ function Search({
                 onChange={() => {
                   onChangeHandle(type)
                 }}
+                checked={checkedState[types.indexOf(type)]}
               />
               <label htmlFor={type}>{type}</label>
             </span>
