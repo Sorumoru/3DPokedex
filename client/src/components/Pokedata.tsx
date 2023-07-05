@@ -20,7 +20,7 @@ function Pokedata({ pokemon }: { pokemon: Pokemon }) {
   return (
     <>
       <div>pokemon data!</div>
-      <Card sx={style}>
+      <Card>
         <CardMedia
           component='img'
           height='600'
