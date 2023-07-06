@@ -32,11 +32,19 @@ body {
 .search-half {
   width: 50%;
   background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.filtered-pagination {
+  background-color: blueviolet;
+  margin-bottom: 50px;
 }
 
 button {
