@@ -13,7 +13,7 @@ import './styles/index.css'
 
 function App () {
   let poke: Pokemon = {
-    id: 99999,
+    id: 0,
     name: {
       chinese: 'string',
       english: 'string',
@@ -66,27 +66,44 @@ function App () {
   return (
     <>
       <div className='whole-thing'>
-        <div className='pokedex-half'>Pokedex half</div>
+        <div className='pokedex-half'>
+          {/* <div>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <p>#25 </p>
+              <h1>Pikachu</h1>
+            </div>
+            <h3>Mouse Pokemon</h3>
+          </div> */}
+          {/* <div>
+            <img
+              src='https://archives.bulbagarden.net/media/upload/8/85/HOME0025.png'
+              alt='Pikachu'
+            />
+          </div> */}
+          <Pokedata pokemon={currentPokemon} />
+        </div>
         <div className='search-half'>
           <Button onClick={toggleDrawer(true)}>Test Button</Button>
           <Drawer
-            anchor='right'
+            anchor='top'
             open={openSearchDrawer}
             onClose={toggleDrawer(false)}
+            hideBackdrop={false}
           >
             <Search
               types={types.current}
               checkedState={checkedState}
+              inputPokemon={inputPokemon}
               setCheckedState={setCheckedState}
               setInputPokemon={setInputPokemon}
             />
           </Drawer>
 
-          {/* <Pokedata pokemon={currentPokemon} /> */}
           <FilteredPagination
             types={types.current}
             checkedState={checkedState}
             inputPokemon={inputPokemon}
+            setCurrentPokemon={setCurrentPokemon}
           />
         </div>
       </div>

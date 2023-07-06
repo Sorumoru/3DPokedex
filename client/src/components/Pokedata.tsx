@@ -4,19 +4,18 @@ import { Pokemon } from '../Objects'
 import { getThreeDigitId } from '../Utils'
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9,
-    marginTop: '30'
-  }
+  // position: 'absolute',
+  // top: '50%',
+  // left: '50%',
+  // transform: 'translate(-50%, -50%)',
+  // media: {
+  //   height: 0,
+  //   paddingTop: '56.25%', // 16:9,
+  //   marginTop: '30'
+  // }
 }
 
-function Pokedata({ pokemon }: { pokemon: Pokemon }) {
-
+function Pokedata ({ pokemon }: { pokemon: Pokemon }) {
   return (
     <>
       <div>pokemon data!</div>

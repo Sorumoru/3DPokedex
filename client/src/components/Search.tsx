@@ -1,13 +1,16 @@
+import { Checkbox, FormControlLabel } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
 function Search ({
   types,
   checkedState,
+  inputPokemon,
   setCheckedState,
   setInputPokemon
 }: {
   types: string[]
   checkedState: boolean[]
+  inputPokemon: string
   setCheckedState: Function
   setInputPokemon: Function
 }) {
@@ -24,7 +27,6 @@ function Search ({
     setCheckedState(newCheckedState)
   }
 
-  useEffect(() => {})
   return (
     <>
       <div>
@@ -32,6 +34,7 @@ function Search ({
           type='text'
           placeholder='Search...'
           onChange={onHandleSearch}
+          value={inputPokemon}
         ></input>
       </div>
       <div className='poketype-checkboxes'>
@@ -50,6 +53,18 @@ function Search ({
               />
               <label htmlFor={type}>{type}</label>
             </span>
+            // <FormControlLabel
+            //   control={
+            //     <Checkbox
+            //       value={type}
+            //       id={type}
+            //       onChange={() => {
+            //         onChangeHandle(type)
+            //       }}
+            //     />
+            //   }
+            //   label={type}
+            // />
           )
         })}
       </div>

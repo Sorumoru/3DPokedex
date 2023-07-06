@@ -23,6 +23,10 @@ body {
 .pokedex-half {
   width: 50%;
   background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  /* align-content: center; */
+  align-items: center;
 }
 
 .search-half {
@@ -40,7 +44,7 @@ button {
 }
 
 button.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 

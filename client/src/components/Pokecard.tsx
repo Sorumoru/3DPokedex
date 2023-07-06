@@ -28,9 +28,18 @@ const style = {
 }
 
 // https://mui.com/material-ui/react-modal/
-function Pokecard({ pokemon }: { pokemon: Pokemon }) {
+function Pokecard ({
+  pokemon,
+  setCurrentPokemon
+}: {
+  pokemon: Pokemon
+  setCurrentPokemon: Function
+}) {
   const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
+  const handleOpen = () => {
+    // setOpen(true)
+    setCurrentPokemon(pokemon)
+  }
   const handleClose = () => setOpen(false)
 
   return (
@@ -47,7 +56,7 @@ function Pokecard({ pokemon }: { pokemon: Pokemon }) {
             alt={`${pokemon.id}`}
           />
         </Card>
-      </Button >
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

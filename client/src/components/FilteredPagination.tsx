@@ -6,11 +6,13 @@ import axios from 'axios'
 function FilteredPagination ({
   types,
   checkedState,
-  inputPokemon
+  inputPokemon,
+  setCurrentPokemon
 }: {
   types: string[]
   checkedState: boolean[]
   inputPokemon: string
+  setCurrentPokemon: Function
 }) {
   console.log(types)
 
@@ -54,7 +56,11 @@ function FilteredPagination ({
 
   return (
     <>
-      <Page currentPokemons={currentPokemons} currentPage={currentPage} />
+      <Page
+        currentPokemons={currentPokemons}
+        currentPage={currentPage}
+        setCurrentPokemon={setCurrentPokemon}
+      />
       <Pagination
         numberOfPages={numberOfPages}
         currentPage={currentPage}
