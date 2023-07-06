@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import FilteredPagination from './components/FilteredPagination'
 import Search from './components/Search'
 import axios from 'axios'
-import Pokedata from './components/Pokedata'
+import PokemonShowcase from './components/PokemonShowcase'
 import { Pokemon } from './Objects'
 import { Button, Drawer } from '@mui/material'
 
@@ -11,7 +11,7 @@ import './styles/index.css'
 
 // material ui stuff
 
-function App () {
+function App() {
   let poke: Pokemon = {
     id: 0,
     name: {
@@ -37,7 +37,7 @@ function App () {
   const types = useRef<string[]>([])
 
   useEffect(() => {
-    async function getTypes () {
+    async function getTypes() {
       const result = await axios.get(
         'https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/types.json'
       )
@@ -73,14 +73,14 @@ function App () {
               <h1>Pikachu</h1>
             </div>
             <h3>Mouse Pokemon</h3>
-          </div> */}
-          {/* <div>
+          </div>
+          <div>
             <img
-              src='https://archives.bulbagarden.net/media/upload/8/85/HOME0025.png'
+              src='https://github.com/fanzeyi/pokemon.json/raw/master/images/025.png'
               alt='Pikachu'
             />
           </div> */}
-          <Pokedata pokemon={currentPokemon} />
+          <PokemonShowcase pokemon={currentPokemon} />
         </div>
         <div className='search-half'>
           <Button onClick={toggleDrawer(true)}>Test Button</Button>
