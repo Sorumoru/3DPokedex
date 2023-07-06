@@ -3,23 +3,25 @@ import { Card, CardMedia, CardContent, Grid, Typography } from '@mui/material'
 import { Pokemon } from '../Objects'
 import { getThreeDigitId } from '../Utils'
 
-const style = {
-  // position: 'absolute',
-  // top: '50%',
-  // left: '50%',
-  // transform: 'translate(-50%, -50%)',
-  // media: {
-  //   height: 0,
-  //   paddingTop: '56.25%', // 16:9,
-  //   marginTop: '30'
-  // }
-}
-
-function Pokedata ({ pokemon }: { pokemon: Pokemon }) {
+function PokemonShowcase ({ pokemon }: { pokemon: Pokemon }) {
   return (
     <>
-      <div>pokemon data!</div>
-      <Card sx={style}>
+      <div>
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <p># {pokemon.id}</p>
+          <h1>{pokemon.name.english}</h1>
+        </div>
+        <h3>??? Pokemon</h3>
+      </div>
+      <div>
+        <img
+          src={`https://github.com/fanzeyi/pokemon.json/raw/master/images/${getThreeDigitId(
+            pokemon.id
+          )}.png`}
+          alt={pokemon.name.english}
+        />
+      </div>
+      {/* <Card>
         <CardMedia
           component='img'
           height='600'
@@ -85,9 +87,9 @@ function Pokedata ({ pokemon }: { pokemon: Pokemon }) {
             </Grid>
           </Grid>
         </CardContent>
-      </Card>
+      </Card> */}
     </>
   )
 }
 
-export default Pokedata
+export default PokemonShowcase
