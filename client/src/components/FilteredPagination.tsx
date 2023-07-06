@@ -56,16 +56,18 @@ function FilteredPagination ({
 
   return (
     <>
-      <Page
-        currentPokemons={currentPokemons}
-        currentPage={currentPage}
-        setCurrentPokemon={setCurrentPokemon}
-      />
-      <Pagination
-        numberOfPages={numberOfPages}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <div className='filtered-pagination'>
+        <Page
+          currentPokemons={currentPokemons}
+          currentPage={currentPage}
+          setCurrentPokemon={setCurrentPokemon}
+        />
+        <Pagination
+          numberOfPages={numberOfPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
     </>
   )
 }
