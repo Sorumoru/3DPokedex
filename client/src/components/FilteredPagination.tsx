@@ -3,7 +3,7 @@ import Page from './Page'
 import Pagination from './Pagination'
 import axios from 'axios'
 
-function FilteredPagination ({
+function FilteredPagination({
   types,
   checkedState,
   inputPokemon,
@@ -55,20 +55,18 @@ function FilteredPagination ({
   const numberOfPages = Math.ceil(pokemons.length / pokemonsPerPage)
 
   return (
-    <>
-      <div className='filtered-pagination'>
-        <Page
-          currentPokemons={currentPokemons}
-          currentPage={currentPage}
-          setCurrentPokemon={setCurrentPokemon}
-        />
-        <Pagination
-          numberOfPages={numberOfPages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-      </div>
-    </>
+    <div className='filtered-pagination'>
+      <Pagination
+        numberOfPages={numberOfPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+      <Page
+        currentPokemons={currentPokemons}
+        currentPage={currentPage}
+        setCurrentPokemon={setCurrentPokemon}
+      />
+    </div>
   )
 }
 

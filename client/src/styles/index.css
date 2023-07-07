@@ -42,9 +42,21 @@ code {
     monospace;
 }
 
+
+.poketype-checkboxes {
+  display: flex;
+  flex-direction: row;
+}
+
+/** Pagination related */
 .filtered-pagination {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   margin-bottom: 50px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 button {
@@ -65,9 +77,4 @@ button.active {
 .pokemon-list img {
   width: 100px;
   height: 100px;
-}
-
-.poketype-checkboxes {
-  display: flex;
-  flex-direction: row;
 }

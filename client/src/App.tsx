@@ -30,6 +30,7 @@ function App() {
       Speed: 0
     }
   }
+
   const [checkedState, setCheckedState] = useState<boolean[]>([])
   const [inputPokemon, setInputPokemon] = useState('')
   const [currentPokemon, setCurrentPokemon] = useState(missingno)
