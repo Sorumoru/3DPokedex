@@ -8,6 +8,7 @@ import { Pokemon } from './Objects'
 import { Button, Drawer } from '@mui/material'
 
 import './styles/index.css'
+import PokemonData from './components/PokemonData'
 
 // material ui stuff
 
@@ -86,6 +87,7 @@ function App() {
             />
           </Drawer>
 
+          <PokemonData pokemon={currentPokemon} />
           <FilteredPagination
             types={types.current}
             checkedState={checkedState}
