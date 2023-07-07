@@ -22,9 +22,9 @@ function Pokecard({
     <>
       <div onClick={handleOpen}>
         <p>{'#' + getThreeDigitId(pokemon.id)}</p>
-        <img src={`https://github.com/fanzeyi/pokemon.json/raw/master/sprites/${getThreeDigitId(
+        <img style={{ imageRendering: 'pixelated' }} src={`https://github.com/fanzeyi/pokemon.json/raw/master/sprites/${getThreeDigitId(
           pokemon.id
-        )}MS.png`} alt={`${pokemon.id}`} />
+        )}MS.png`} alt={`pixel ${pokemon.name.english}`} />
       </div>
     </>
   )
