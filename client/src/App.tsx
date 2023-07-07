@@ -67,19 +67,6 @@ function App() {
     <>
       <div className='whole-thing'>
         <div className='pokedex-half'>
-          {/* <div>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              <p>#25 </p>
-              <h1>Pikachu</h1>
-            </div>
-            <h3>Mouse Pokemon</h3>
-          </div>
-          <div>
-            <img
-              src='https://github.com/fanzeyi/pokemon.json/raw/master/images/025.png'
-              alt='Pikachu'
-            />
-          </div> */}
           <PokemonShowcase pokemon={currentPokemon} />
         </div>
         <div className='search-half'>
