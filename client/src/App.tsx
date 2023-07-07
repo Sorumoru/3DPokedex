@@ -10,30 +10,29 @@ import { Button, Drawer } from '@mui/material'
 import './styles/index.css'
 import PokemonData from './components/PokemonData'
 
-// material ui stuff
 
 function App() {
-  let poke: Pokemon = {
+  let missingno: Pokemon = {
     id: 0,
     name: {
-      chinese: 'string',
-      english: 'string',
-      french: 'string',
-      japanese: 'string'
+      chinese: '失踪了。',
+      english: 'Missingno.',
+      french: 'Non manquant.',
+      japanese: '行方不明。'
     },
-    type: ['normal'],
+    type: ['???'],
     base: {
-      Attack: 1,
-      Defense: 1,
-      HP: 1,
-      'Sp. Attack': 1,
-      'Sp. Defense': 1,
-      Speed: 1
+      Attack: 0,
+      Defense: 0,
+      HP: 0,
+      'Sp. Attack': 0,
+      'Sp. Defense': 0,
+      Speed: 0
     }
   }
   const [checkedState, setCheckedState] = useState<boolean[]>([])
   const [inputPokemon, setInputPokemon] = useState('')
-  const [currentPokemon, setCurrentPokemon] = useState(poke)
+  const [currentPokemon, setCurrentPokemon] = useState(missingno)
   const [openSearchDrawer, setOpenSearchDrawer] = useState(false)
   const types = useRef<string[]>([])
 
