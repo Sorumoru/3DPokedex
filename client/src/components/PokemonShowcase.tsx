@@ -26,14 +26,12 @@ function PokemonShowcase({ pokemon }: { pokemon: Pokemon }) {
       </div>
 
       <div className='pokemon-img'>
-        <div>
-          <img
-            src={`https://github.com/fanzeyi/pokemon.json/raw/master/images/${getThreeDigitId(
-              pokemon.id
-            )}.png`}
-            alt={pokemon.name.english}
-          />
-        </div>
+        <img
+          src={`https://github.com/fanzeyi/pokemon.json/raw/master/images/${getThreeDigitId(
+            pokemon.id
+          )}.png`}
+          alt={pokemon.name.english}
+        />
       </div>
     </>
   )
