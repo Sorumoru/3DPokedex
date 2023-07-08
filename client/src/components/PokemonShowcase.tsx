@@ -6,6 +6,12 @@ import { getThreeDigitId } from '../Utils'
 function PokemonShowcase({ pokemon }: { pokemon: Pokemon }) {
   return (
     <>
+      {
+        /**
+         * TODO: for angled cutoff bug, we can clip-path the black part
+         * instead of the green part.
+         */
+      }
       <div className='top-info'>
         <div className='name-card'>
           <div className='name-card-left'>
