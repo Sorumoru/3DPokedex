@@ -39,7 +39,7 @@ body {
   color: white;
   margin-top: 50px;
   height: 70px;
-  width: 400px;
+  /* width: 400px; */
 
 }
 .name-card p, .name-card h1 {
@@ -84,6 +84,8 @@ body {
   padding-right: 20px;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
+  width: auto;
+  transition: width 2s;
 }
 
 .pokemon-img {
@@ -97,7 +99,7 @@ body {
 
 .search-half {
   width: 50%;
-  background-color: bisque;
+  background-color: rgb(233, 225, 215);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
