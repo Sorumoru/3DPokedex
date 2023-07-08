@@ -2,7 +2,7 @@ import React from 'react'
 import Pokecard from './Pokecard'
 import { Pokemon } from '../Objects'
 
-function Page ({
+function Page({
   currentPokemons,
   currentPage,
   setCurrentPokemon
@@ -13,19 +13,17 @@ function Page ({
 }) {
   console.log(currentPokemons)
   return (
-    <div>
-      <p>Page number {currentPage}</p>
-      <div className='pokemon-list'>
-        {currentPokemons.map(item => {
-          return (
-            <Pokecard
-              key={item.id}
-              pokemon={item}
-              setCurrentPokemon={setCurrentPokemon}
-            />
-          )
-        })}
-      </div>
+
+    <div className='pokemon-list'>
+      {currentPokemons.map(item => {
+        return (
+          <Pokecard
+            key={item.id}
+            pokemon={item}
+            setCurrentPokemon={setCurrentPokemon}
+          />
+        )
+      })}
     </div>
   )
 }
