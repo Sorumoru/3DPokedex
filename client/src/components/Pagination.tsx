@@ -20,49 +20,52 @@ function Pagination({
     if (currentPage !== 1) setCurrentPage(currentPage - 1)
   }
 
-  const beforeAfterNumber = 3
+  const beforeAfterNumber = 6
 
   return (
     <div className='pagination'>
       <button onClick={prevPage} disabled={!(currentPage !== 1)}>prev</button>
 
-      {currentPage < beforeAfterNumber
-        ? Array.from({ length: beforeAfterNumber - currentPage }, (_, index) => (
-          <button
-            disabled={true}
-            className={0 === currentPage ? 'active' : ''}
-          >
-            0
-          </button>
-        ))
-        : null}
-
-      {pageNumbers.map(number => {
-        if (number < currentPage + beforeAfterNumber && number > currentPage - beforeAfterNumber)
-          return (
+      <div>
+        {currentPage < beforeAfterNumber
+          ? Array.from({ length: beforeAfterNumber - currentPage }, (_, index) => (
             <button
-              key={number}
-              onClick={() => setCurrentPage(number)}
-              className={number == currentPage ? 'active' : ''}
+              disabled={true}
+              className={0 === currentPage ? 'active' : ''}
             >
-              {number}
+              0
             </button>
-          )
-      })}
+          ))
+          : null}
 
-      {currentPage > numberOfPages - beforeAfterNumber
-        ? Array.from({ length: beforeAfterNumber - (numberOfPages - currentPage) }, (_, index) => (
-          <button
-            disabled={true}
-            className={0 === currentPage ? 'active' : ''}
-          >
-            0
-          </button>
-        ))
-        : null}
-      {currentPage !== numberOfPages && (
+        {pageNumbers.map(number => {
+          if (number < currentPage + beforeAfterNumber && number > currentPage - beforeAfterNumber)
+            return (
+              <button
+                key={number}
+                onClick={() => setCurrentPage(number)}
+                className={number == currentPage ? 'active' : ''}
+              >
+                {number}
+              </button>
+            )
+        })}
+
+        {currentPage > numberOfPages - beforeAfterNumber
+          ? Array.from({ length: beforeAfterNumber - (numberOfPages - currentPage) - 1 }, (_, index) => (
+            <button
+              disabled={true}
+              className={0 === currentPage ? 'active' : ''}
+            >
+              0
+            </button>
+          ))
+          : null}
+      </div>
+      {/* {currentPage !== numberOfPages && (
         <button onClick={nextPage}>next</button>
-      )}
+      )} */}
+      <button onClick={nextPage} disabled={!(currentPage !== numberOfPages)}>next</button>
     </div>
   )
 }
