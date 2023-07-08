@@ -1,4 +1,5 @@
 import React from 'react'
+import { Pagination as Pagination1 } from '@mui/material'
 
 function Pagination({
   numberOfPages,
@@ -20,10 +21,11 @@ function Pagination({
     if (currentPage !== 1) setCurrentPage(currentPage - 1)
   }
 
-  const beforeAfterNumber = 6
+  const beforeAfterNumber = 3
 
   return (
     <div className='pagination'>
+      <Pagination1 count={10} variant="outlined" color="secondary" />
       <button onClick={prevPage} disabled={!(currentPage !== 1)}>prev</button>
 
       <div>
