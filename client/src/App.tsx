@@ -3,35 +3,38 @@ import ReactDOM from 'react-dom/client'
 import FilteredPagination from './components/FilteredPagination'
 import Search from './components/Search'
 import axios from 'axios'
-import Pokedata from './components/Pokedata'
+import PokemonShowcase from './components/PokemonShowcase'
 import { Pokemon } from './Objects'
+import { Button, Drawer } from '@mui/material'
 
 import './styles/index.css'
+import PokemonData from './components/PokemonData'
 
-// material ui stuff
 
 function App() {
-  let poke: Pokemon = {
-    id: 99999,
+  let missingno: Pokemon = {
+    id: 0,
     name: {
-      chinese: "string",
-      english: "string",
-      french: "string",
-      japanese: "string"
+      chinese: '失踪了。',
+      english: 'Missingno.',
+      french: 'Non manquant.',
+      japanese: '行方不明。'
     },
-    type: ["normal"],
+    type: ['???'],
     base: {
-      Attack: 1,
-      Defense: 1,
-      HP: 1,
-      'Sp. Attack': 1,
-      'Sp. Defense': 1,
-      Speed: 1
+      Attack: 0,
+      Defense: 0,
+      HP: 0,
+      'Sp. Attack': 0,
+      'Sp. Defense': 0,
+      Speed: 0
     }
   }
-  const [checkedState, setCheckedState] = useState<string[]>([])
+
+  const [checkedState, setCheckedState] = useState<boolean[]>([])
   const [inputPokemon, setInputPokemon] = useState('')
-  const [currentPokemon, setCurrentPokemon] = useState(poke)
+  const [currentPokemon, setCurrentPokemon] = useState(missingno)
+  const [openSearchDrawer, setOpenSearchDrawer] = useState(false)
   const types = useRef<string[]>([])
 
   useEffect(() => {
@@ -46,27 +49,50 @@ function App() {
     }
     getTypes()
     console.log(types)
-    console.log(inputPokemon + "wowzers")
+    console.log(inputPokemon + 'wowzers')
   }, [])
+
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return
+      }
+      setOpenSearchDrawer(open)
+    }
 
   return (
     <>
       <div className='whole-thing'>
         <div className='pokedex-half'>
-          Pokedex half
+          <PokemonShowcase pokemon={currentPokemon} />
         </div>
         <div className='search-half'>
-          <Search
-            types={types.current}
-            checkedState={checkedState}
-            setCheckedState={setCheckedState}
-            setInputPokemon={setInputPokemon}
-          />
-          <Pokedata pokemon={currentPokemon} />
+          <Button onClick={toggleDrawer(true)}>Test Button</Button>
+          <Drawer
+            anchor='top'
+            open={openSearchDrawer}
+            onClose={toggleDrawer(false)}
+            hideBackdrop={false}
+          >
+            <Search
+              types={types.current}
+              checkedState={checkedState}
+              inputPokemon={inputPokemon}
+              setCheckedState={setCheckedState}
+              setInputPokemon={setInputPokemon}
+            />
+          </Drawer>
+
+          <PokemonData pokemon={currentPokemon} />
           <FilteredPagination
             types={types.current}
             checkedState={checkedState}
             inputPokemon={inputPokemon}
+            setCurrentPokemon={setCurrentPokemon}
           />
         </div>
       </div>

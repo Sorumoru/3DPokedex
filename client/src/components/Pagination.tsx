@@ -1,6 +1,7 @@
 import React from 'react'
+import { Pagination as Pagination1 } from '@mui/material'
 
-function Pagination ({
+function Pagination({
   numberOfPages,
   currentPage,
   setCurrentPage
@@ -20,26 +21,53 @@ function Pagination ({
     if (currentPage !== 1) setCurrentPage(currentPage - 1)
   }
 
+  const beforeAfterNumber = 3
+
   return (
-    <div>
-      {currentPage !== 1 && <button onClick={prevPage}>prev </button>}
+    <div className='pagination'>
+      <Pagination1 count={10} variant="outlined" color="secondary" />
+      <button onClick={prevPage} disabled={!(currentPage !== 1)}>prev</button>
 
-      {pageNumbers.map(number => {
-        if (number < currentPage + 6 && number > currentPage - 6)
-          return (
+      <div>
+        {currentPage < beforeAfterNumber
+          ? Array.from({ length: beforeAfterNumber - currentPage }, (_, index) => (
             <button
-              key={number}
-              onClick={() => setCurrentPage(number)}
-              className={number == currentPage ? 'active' : ''}
+              disabled={true}
+              className={0 === currentPage ? 'active' : ''}
             >
-              {number}
+              0
             </button>
-          )
-      })}
+          ))
+          : null}
 
-      {currentPage !== numberOfPages && (
+        {pageNumbers.map(number => {
+          if (number < currentPage + beforeAfterNumber && number > currentPage - beforeAfterNumber)
+            return (
+              <button
+                key={number}
+                onClick={() => setCurrentPage(number)}
+                className={number == currentPage ? 'active' : ''}
+              >
+                {number}
+              </button>
+            )
+        })}
+
+        {currentPage > numberOfPages - beforeAfterNumber
+          ? Array.from({ length: beforeAfterNumber - (numberOfPages - currentPage) - 1 }, (_, index) => (
+            <button
+              disabled={true}
+              className={0 === currentPage ? 'active' : ''}
+            >
+              0
+            </button>
+          ))
+          : null}
+      </div>
+      {/* {currentPage !== numberOfPages && (
         <button onClick={nextPage}>next</button>
-      )}
+      )} */}
+      <button onClick={nextPage} disabled={!(currentPage !== numberOfPages)}>next</button>
     </div>
   )
 }

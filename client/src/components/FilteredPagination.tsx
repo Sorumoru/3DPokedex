@@ -6,11 +6,13 @@ import axios from 'axios'
 function FilteredPagination({
   types,
   checkedState,
-  inputPokemon
+  inputPokemon,
+  setCurrentPokemon
 }: {
   types: string[]
-  checkedState: string[]
+  checkedState: boolean[]
   inputPokemon: string
+  setCurrentPokemon: Function
 }) {
   console.log(types)
 
@@ -38,14 +40,13 @@ function FilteredPagination({
             .toLowerCase()
             .includes(inputPokemon.toLowerCase())
         )
-        console.log(data + "wtffff")
+        console.log(data + 'wtffff')
         return data
       })
       .then(res => {
         setPokemons(res)
       })
       .catch(err => console.log('err', err))
-
   }, [checkedState, inputPokemon])
 
   const indexOfLastRecord = currentPage * pokemonsPerPage
@@ -54,14 +55,18 @@ function FilteredPagination({
   const numberOfPages = Math.ceil(pokemons.length / pokemonsPerPage)
 
   return (
-    <>
-      <Page currentPokemons={currentPokemons} currentPage={currentPage} />
+    <div className='filtered-pagination'>
       <Pagination
         numberOfPages={numberOfPages}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
-    </>
+      <Page
+        currentPokemons={currentPokemons}
+        currentPage={currentPage}
+        setCurrentPokemon={setCurrentPokemon}
+      />
+    </div>
   )
 }
 
