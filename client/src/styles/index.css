@@ -8,6 +8,7 @@ body {
 }
 
 .whole-thing {
+  background-color: rgb(141, 168, 133);
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -25,7 +26,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* position: relative; */
 }
 .top-info {
   display: flex;
@@ -39,8 +39,6 @@ body {
   color: white;
   margin-top: 50px;
   height: 70px;
-  /* width: 400px; */
-
 }
 .name-card p, .name-card h1 {
   padding: 0;
@@ -99,7 +97,7 @@ body {
 
 .search-half {
   width: 50%;
-  background-color: rgb(233, 225, 215);
+  /* background-color: rgb(233, 225, 215); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -123,16 +121,24 @@ code {
 
 .pagination {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
-button {
+.pagination-button {
   display: inline-block;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: 0;
+  border-radius: 40px;
+  margin: 0 10px 0 10px;
 }
 
-button.active {
+.pagination-button.active {
   background-color: #4caf50;
   color: white;
+  width: 40px;
+  height: 40px;
 }
 
 .pokemon-list {
