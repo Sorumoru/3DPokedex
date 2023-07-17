@@ -71,7 +71,7 @@ function App() {
           <PokemonShowcase pokemon={currentPokemon} />
         </div>
         <div className='search-half'>
-          <Button onClick={toggleDrawer(true)}>Test Button</Button>
+          {/* <Button onClick={toggleDrawer(true)}>Test Button</Button>
           <Drawer
             anchor='top'
             open={openSearchDrawer}
@@ -85,15 +85,18 @@ function App() {
               setCheckedState={setCheckedState}
               setInputPokemon={setInputPokemon}
             />
-          </Drawer>
+          </Drawer> */}
 
-          <PokemonData pokemon={currentPokemon} />
+          {/* <PokemonData pokemon={currentPokemon} />
           <FilteredPagination
             types={types.current}
             checkedState={checkedState}
             inputPokemon={inputPokemon}
             setCurrentPokemon={setCurrentPokemon}
-          />
+          /> */}
+          <div className='poke-box'>
+
+          </div>
         </div>
       </div>
     </>

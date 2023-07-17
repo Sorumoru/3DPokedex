@@ -20,7 +20,7 @@ function Pokecard({
 
   return (
     <>
-      <div onClick={handleOpen}>
+      <div className='pokecard' onClick={handleOpen}>
         <p>{'#' + getThreeDigitId(pokemon.id)}</p>
         <img style={{ imageRendering: 'pixelated' }} src={`https://github.com/fanzeyi/pokemon.json/raw/master/sprites/${getThreeDigitId(
           pokemon.id
