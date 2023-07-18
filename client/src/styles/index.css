@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/Jost/static/Jost-Regular.ttf");
+}
 
 body {
   font-family: 'Jost', sans-serif;
@@ -100,11 +104,15 @@ body {
   /* background-color: rgb(233, 225, 215); */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 .poke-box {
 background-color: aliceblue;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 height: 90%;
 width: 90%;
 }
@@ -122,7 +130,7 @@ code {
 
 /** Pagination related */
 .filtered-pagination {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .pagination {

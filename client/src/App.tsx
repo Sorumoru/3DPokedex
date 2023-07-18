@@ -71,31 +71,30 @@ function App() {
           <PokemonShowcase pokemon={currentPokemon} />
         </div>
         <div className='search-half'>
-          {/* <Button onClick={toggleDrawer(true)}>Test Button</Button>
-          <Drawer
-            anchor='top'
-            open={openSearchDrawer}
-            onClose={toggleDrawer(false)}
-            hideBackdrop={false}
-          >
-            <Search
+          <div className='poke-box'>
+            <Drawer
+              anchor='top'
+              open={openSearchDrawer}
+              onClose={toggleDrawer(false)}
+              hideBackdrop={false}
+            >
+              <Search
+                types={types.current}
+                checkedState={checkedState}
+                inputPokemon={inputPokemon}
+                setCheckedState={setCheckedState}
+                setInputPokemon={setInputPokemon}
+              />
+            </Drawer>
+
+            <PokemonData pokemon={currentPokemon} />
+            <FilteredPagination
               types={types.current}
               checkedState={checkedState}
               inputPokemon={inputPokemon}
-              setCheckedState={setCheckedState}
-              setInputPokemon={setInputPokemon}
+              setCurrentPokemon={setCurrentPokemon}
             />
-          </Drawer> */}
-
-          {/* <PokemonData pokemon={currentPokemon} />
-          <FilteredPagination
-            types={types.current}
-            checkedState={checkedState}
-            inputPokemon={inputPokemon}
-            setCurrentPokemon={setCurrentPokemon}
-          /> */}
-          <div className='poke-box'>
-
+            <Button onClick={toggleDrawer(true)}>Test Button</Button>
           </div>
         </div>
       </div>
