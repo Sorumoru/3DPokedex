@@ -5,7 +5,6 @@ import Search from './components/Search'
 import axios from 'axios'
 import PokemonShowcase from './components/PokemonShowcase'
 import { Pokemon } from './Objects'
-import { Button, Drawer } from '@mui/material'
 
 import './styles/index.css'
 import PokemonData from './components/PokemonData'
@@ -52,17 +51,9 @@ function App() {
     console.log(inputPokemon + 'wowzers')
   }, [])
 
-  const toggleDrawer =
-    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-      ) {
-        return
-      }
-      setOpenSearchDrawer(open)
-    }
+  const toggleDrawer = () => {
+    setOpenSearchDrawer(!openSearchDrawer)
+  }
 
   return (
     <>
@@ -81,8 +72,10 @@ function App() {
               inputPokemon={inputPokemon}
               setCurrentPokemon={setCurrentPokemon}
             />
-            <button>Advanced Search</button>
-            <div className='advanced-search'></div>
+            <button onClick={toggleDrawer}>Advanced Search</button>
+            {openSearchDrawer && (
+              <div className='advanced-search'></div>
+            )}
             {/* <Button onClick={toggleDrawer(true)}>Test Button</Button>
               <Drawer
                 anchor='top'
