@@ -74,15 +74,7 @@ function App() {
             />
             <button onClick={toggleDrawer}>Advanced Search</button>
             {openSearchDrawer && (
-              <div className='advanced-search'></div>
-            )}
-            {/* <Button onClick={toggleDrawer(true)}>Test Button</Button>
-              <Drawer
-                anchor='top'
-                open={openSearchDrawer}
-                onClose={toggleDrawer(false)}
-                hideBackdrop={false}
-              >
+              <div className='advanced-search'>
                 <Search
                   types={types.current}
                   checkedState={checkedState}
@@ -90,7 +82,9 @@ function App() {
                   setCheckedState={setCheckedState}
                   setInputPokemon={setInputPokemon}
                 />
-              </Drawer> */}
+                <button onClick={toggleDrawer}>Advanced Search</button>
+              </div>
+            )}
           </div>
         </div>
       </div>
