@@ -3,6 +3,11 @@
   src: url("../fonts/Jost/static/Jost-Regular.ttf");
 }
 
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
 body {
   font-family: 'Jost', sans-serif;
   font-weight: 500;

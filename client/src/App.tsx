@@ -1,14 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
-import ReactDOM from 'react-dom/client'
+import axios from 'axios'
 import FilteredPagination from './components/FilteredPagination'
 import Search from './components/Search'
-import axios from 'axios'
 import PokemonShowcase from './components/PokemonShowcase'
-import { Pokemon } from './Objects'
-
-import './styles/index.css'
 import PokemonData from './components/PokemonData'
-
+import ThreeDScene from './components/ThreeDScene'
+import { Pokemon } from './Objects'
+import './styles/index.css'
 
 function App() {
   let missingno: Pokemon = {
@@ -58,6 +56,9 @@ function App() {
   return (
     <>
       <div className='whole-thing'>
+        <div className='background'>
+          <ThreeDScene></ThreeDScene>
+        </div>
         <div className='left-half'>
           <PokemonShowcase pokemon={currentPokemon} />
         </div>

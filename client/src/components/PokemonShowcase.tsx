@@ -31,14 +31,14 @@ function PokemonShowcase({ pokemon }: { pokemon: Pokemon }) {
         <h3>??? Pokemon</h3>
       </div>
 
-      <div className='pokemon-img'>
+      {/* <div className='pokemon-img'>
         <img
           src={`https://github.com/fanzeyi/pokemon.json/raw/master/images/${getThreeDigitId(
             pokemon.id
           )}.png`}
           alt={pokemon.name.english}
         />
-      </div>
+      </div> */}
     </>
   )
 }
